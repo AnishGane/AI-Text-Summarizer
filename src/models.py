@@ -22,7 +22,7 @@ class SummaryRequest(BaseModel):
         max_length=MAX_INPUT_LENGTH,
     )
     
-    summary_type: SummaryType = SummaryType.MEDIUM
+    summary_type: SummaryType = SummaryType.BULLETS
     
     @field_validator("text")
     @classmethod
