@@ -1,5 +1,11 @@
 from google import genai
-from src.config import (GOOGLE_API_KEY, MODEL_NAME, TEMPERATURE, MAX_OUTPUT_TOKENS)
+from google.genai import errors
+from src.config import (
+    GOOGLE_API_KEY, 
+    MODEL_NAME, 
+    TEMPERATURE, 
+    MAX_OUTPUT_TOKENS)
+from src.exceptions import GeminiAPIError
 
 client = genai.Client(api_key=GOOGLE_API_KEY)
 
@@ -21,13 +27,22 @@ def test_connection():
 def generate_response(prompt: str)->str:
     """Send the prompt to Gemini and return the generated response text"""
 
-    response = client.models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt,
-        config={
-            "temperature": TEMPERATURE,
-            "max_output_tokens": MAX_OUTPUT_TOKENS
-        }
-    )
+    try:
+        response = client.model.generate_content(
+            model = MODEL_NAME,
+            contents = prompt,
+            config={
+                "temperature": TEMPERATURE,
+                "max_output_tokens": MAX_OUTPUT_TOKENS
+            }
+        )
+        
+        return response.text
+    
+    except errors.ClientError as e:
+        raise GeminiAPIError(f"Gemini API error: {e}") from e
+    
+    except Exception as e:
+        raise GeminiAPIError(f"An error occurred: {e}") from e
     
     return response.text

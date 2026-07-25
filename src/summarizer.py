@@ -6,12 +6,14 @@ from src.models import (
     SummaryRequest,
     SummaryResponse
 )
+from src.exceptions import PromptError
 
 def summarize_text(request: SummaryRequest) -> SummaryResponse:
-    """Summarize the text provided by the user"""
-
-    prompt = PROMPTS[request.summary_type].format(text=request.text)
-
-    summary = generate_response(prompt)
-
-    return SummaryResponse(summary=summary)
+   try:
+       prompt = PROMPTS[request.summary_type].format(text=request.text)
+   except Exception as e:
+       raise PromptError(f"No prompt found for summary type: {request.summary_type}") from e
+   
+   response = generate_response(prompt)
+   
+   return SummaryResponse(summary=response)
