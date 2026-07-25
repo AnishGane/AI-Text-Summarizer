@@ -30,7 +30,7 @@ class SummaryRequest(BaseModel):
         if not value:
             raise ValueError("Text cannot be empty")
         
-    return value
+        return value
     
 class SummaryResponse(BaseModel):
     summary: str

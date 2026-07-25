@@ -1,0 +1,15 @@
+2026-07-25 08:26:40 | INFO | src.summarizer | Generating medium summary
+2026-07-25 08:26:40 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 08:26:40 | ERROR | src.llm | Unexpected error while communicating with Gemini.
+Traceback (most recent call last):
+  File "E:\AI Text Summarizer\src\llm.py", line 48, in generate_response
+    response = client.model.generate_content(
+               ^^^^^^^^^^^^
+AttributeError: 'Client' object has no attribute 'model'
+2026-07-25 08:26:40 | ERROR | __main__ | Communication with Gemini API failed.
+2026-07-25 08:27:33 | INFO | src.summarizer | Generating medium summary
+2026-07-25 08:27:33 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 08:27:33 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-07-25 08:27:36 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-07-25 08:27:36 | INFO | src.llm | Received response from Gemini.
+2026-07-25 08:27:36 | INFO | src.summarizer | Summary generated successfully.

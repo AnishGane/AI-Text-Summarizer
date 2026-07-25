@@ -5,6 +5,10 @@ from src.exceptions import (
     PromptError,
     GeminiAPIError
 )
+from src.logger import logger
+import logging
+
+logger = logging.getLogger(__name__)
 
 try:
     request = SummaryRequest(
@@ -21,13 +25,13 @@ try:
     print(response.summary)
 
 except ValidationError as e:
-    print("\nInput validation failed:")
+    logger.warning("Input validation failed.")
     print(e)
 
 except PromptError as e:
-    print("Prompt Error")
+    logger.warning("Prompt generation failed.")
     print(e)
 
 except GeminiAPIError as e:
-    print("Gemini Error")
+    logger.error("Communication with Gemini API failed.")
     print(e)
