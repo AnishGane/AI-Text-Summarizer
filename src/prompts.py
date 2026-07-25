@@ -1,16 +1,52 @@
-# prompt template
+from src.models import SummaryType
 
-SUMMARY_PROMPT = """
-You are an expert summarization assistant.
+PROMPTS = {
+    SummaryType.SHORT: """
+You are an expert summarizer.
 
-Your task is to summarize the following text.
-
-Rules:
-- Preserve the original meaning.
-- Do not add new information.
-- Keep the summary concise.
-- Use clear and simple language.
+Summarize the following text in 2–3 concise sentences.
 
 Text:
 {text}
-"""
+""",
+    SummaryType.MEDIUM: """
+You are an expert summarizer.
+
+Summarize the following text in one concise paragraph.
+
+Text:
+{text}
+""",
+    SummaryType.LONG: """
+You are an expert summarizer.
+
+Create a detailed summary while preserving all important information.
+
+Text:
+{text}
+""",
+    SummaryType.BULLETS: """
+You are an expert summarizer.
+
+Summarize the following text into bullet points.
+
+Text:
+{text}
+""",
+    SummaryType.EXECUTIVE: """
+You are writing for business executives.
+
+Create an executive summary highlighting only the most important information.
+
+Text:
+{text}
+""",
+    SummaryType.KEY_TAKEAWAYS: """
+Extract the key takeaways from the following text.
+
+Return them as numbered points.
+
+Text:
+{text}
+""",
+}

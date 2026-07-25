@@ -1,16 +1,19 @@
-# from src.llm import test_connection, list_available_models
+from src.models import (
+    SummaryRequest,
+    SummaryType,
+)
 from src.summarizer import summarize_text
 
-sample_text = """
-Artificial Intelligence is transforming healthcare by improving
-medical diagnosis, drug discovery, patient monitoring,
-and personalized treatment.
-"""
+request = SummaryRequest(
+    text="""
+Artificial Intelligence is changing healthcare
+through better diagnosis,
+drug discovery,
+and personalized medicine.
+""",
+    summary_type=SummaryType.BULLETS,
+)
 
-if __name__ == "__main__":
-    # list_available_models()
-    # print(test_connection())
-    
-    summary = summarize_text(sample_text)
-    print("\n Generated Summary:\n")
-    print(summary)
+response = summarize_text(request)
+
+print(response.summary)

@@ -1,11 +1,17 @@
 # contains business logics
 
-from src.prompts import SUMMARY_PROMPT
+from src.prompts import PROMPTS
 from src.llm import generate_response
+from src.models import (
+    SummaryRequest,
+    SummaryResponse
+)
 
-def summarize_text(text: str)->str:
+def summarize_text(request: SummaryRequest) -> SummaryResponse:
     """Summarize the text provided by the user"""
 
-    prompt = SUMMARY_PROMPT.format(text=text)
+    prompt = PROMPTS[request.summary_type].format(text=request.text)
 
-    return generate_response(prompt)
+    summary = generate_response(prompt)
+
+    return SummaryResponse(summary=summary)
