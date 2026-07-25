@@ -4,6 +4,17 @@ from src.summarizer import summarize_text
 from pydantic import ValidationError
 from src.exceptions import PromptError, GeminiAPIError
 
+st.markdown(
+    """
+    <style>
+    textarea {
+        resize: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.set_page_config(
     page_title="AI Text Summarizer",
     page_icon="📃",
@@ -16,22 +27,28 @@ st.write(
     "Summarize long text into concise summaries using Google's Gemini."
 )
 
-text = st.text_area("Enter your text to summarize:", 
+st.subheader("Enter your text to summarize")
+text = st.text_area("", 
                         height=300,
                         placeholder="Paste your article here..."
                 )
 
-summary_type = st.selectbox(
-    "Summary Type",
-    options=list(SummaryType),
-    format_func=lambda x: x.replace("_", " ").title(),
-)
+col1, col2 = st.columns(2)
 
-summarize_button = st.button(
-    "Generate Summary",
-    use_container_width=True,
-    disabled= not text.strip(),
-)
+with col1:
+    summary_type = st.selectbox(
+        "Summary Type",
+        options=list(SummaryType),
+        format_func=lambda x: x.replace("_", " ").title(),
+    )
+
+with col2:
+    st.markdown("<br>", unsafe_allow_html=True)
+    summarize_button = st.button(
+        "Generate Summary",
+        use_container_width=True,
+        disabled= not text.strip(),
+    )
 
 if summarize_button:
     try:
