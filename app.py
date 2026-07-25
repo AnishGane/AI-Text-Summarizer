@@ -44,6 +44,7 @@ if summarize_button:
 
         st.subheader("Summary")
         st.text_area(
+            "Summary",
             value=response.summary,
             height=200         
         )

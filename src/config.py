@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+import streamlit as st
 
 # Load env variables from .env
 load_dotenv()
@@ -7,6 +8,9 @@ load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 MODEL_NAME="gemini-3.6-flash"
 
+if not GOOGLE_API_KEY:
+    GOOGLE_API_KEY= st.secrets("GOOGLE_API_KEY")
+    
 if not GOOGLE_API_KEY:
     raise ValueError("GOOGLE_API_KEY is missing. Please check your .env file.")
 
