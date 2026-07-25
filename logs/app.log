@@ -43,3 +43,23 @@ AttributeError: 'Client' object has no attribute 'model'
 2026-07-25 09:47:48 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
 2026-07-25 09:47:48 | INFO | src.llm | Received response from Gemini.
 2026-07-25 09:47:48 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 10:40:18 | INFO | src.summarizer | Generating short summary
+2026-07-25 10:40:18 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 10:40:22 | INFO | src.llm | Received response from Gemini.
+2026-07-25 10:40:22 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 10:40:29 | INFO | src.summarizer | Generating bullets summary
+2026-07-25 10:40:29 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 10:40:32 | INFO | src.llm | Received response from Gemini.
+2026-07-25 10:40:32 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 10:41:05 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Python311\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Python311\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-07-25 10:41:16 | INFO | src.summarizer | Generating key_takeaways summary
+2026-07-25 10:41:16 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 10:41:20 | INFO | src.llm | Received response from Gemini.
+2026-07-25 10:41:20 | INFO | src.summarizer | Summary generated successfully.
