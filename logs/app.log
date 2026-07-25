@@ -13,3 +13,33 @@ AttributeError: 'Client' object has no attribute 'model'
 2026-07-25 08:27:36 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
 2026-07-25 08:27:36 | INFO | src.llm | Received response from Gemini.
 2026-07-25 08:27:36 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 09:43:37 | INFO | src.summarizer | Generating short summary
+2026-07-25 09:43:37 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 09:43:37 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-07-25 09:43:41 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-07-25 09:43:41 | INFO | src.llm | Received response from Gemini.
+2026-07-25 09:43:41 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 09:43:50 | INFO | src.summarizer | Generating bullets summary
+2026-07-25 09:43:50 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 09:43:50 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-07-25 09:43:53 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-07-25 09:43:53 | INFO | src.llm | Received response from Gemini.
+2026-07-25 09:43:53 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 09:45:37 | INFO | src.summarizer | Generating bullets summary
+2026-07-25 09:45:37 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 09:45:37 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-07-25 09:45:40 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-07-25 09:45:40 | INFO | src.llm | Received response from Gemini.
+2026-07-25 09:45:40 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 09:46:01 | INFO | src.summarizer | Generating bullets summary
+2026-07-25 09:46:01 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 09:46:01 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-07-25 09:46:05 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-07-25 09:46:05 | INFO | src.llm | Received response from Gemini.
+2026-07-25 09:46:05 | INFO | src.summarizer | Summary generated successfully.
+2026-07-25 09:47:44 | INFO | src.summarizer | Generating bullets summary
+2026-07-25 09:47:44 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-25 09:47:44 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-07-25 09:47:48 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent "HTTP/1.1 200 OK"
+2026-07-25 09:47:48 | INFO | src.llm | Received response from Gemini.
+2026-07-25 09:47:48 | INFO | src.summarizer | Summary generated successfully.
