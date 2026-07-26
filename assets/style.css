@@ -1,0 +1,31 @@
+button[data-testid="stPopoverButton"] svg {
+  display: none;
+}
+
+.file-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 14px;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+
+  background: #20232a;
+
+  font-size: 14px;
+
+  margin-top: 6px;
+}
+
+.file-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.remove-btn {
+  color: #ff4b4b;
+  font-weight: bold;
+}

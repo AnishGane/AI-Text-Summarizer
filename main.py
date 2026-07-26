@@ -1,6 +1,6 @@
 from pydantic import ValidationError
 from src.models import SummaryRequest
-from src.summarizer import summarize_text
+from src.services.summarizer import summarize_text
 from src.exceptions import (
     PromptError,
     GeminiAPIError

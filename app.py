@@ -1,19 +1,13 @@
 import streamlit as st
 from src.models import SummaryType, SummaryRequest
-from src.summarizer import summarize_text
+from src.services.summarizer import summarize_text
 from pydantic import ValidationError
 from src.exceptions import PromptError, GeminiAPIError
-
-st.markdown(
-    """
-    <style>
-    textarea {
-        resize: none !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# from src.services.pdf_service import extract_text_from_pdf
+from src.components.sidebar import render_sidebar
+from src.components.input import render_input
+from src.components.output import render_output
+from src.utils import load_css
 
 st.set_page_config(
     page_title="AI Text Summarizer",
@@ -21,51 +15,43 @@ st.set_page_config(
     layout="centered"
 )
 
+load_css()
+
+if "summary" not in st.session_state:
+    st.session_state.summary = ""
+    
+if "input_text" not in st.session_state:
+    st.session_state.input_text = ""
+
+if "summary_type" not in st.session_state:
+    st.session_state.summary_type = SummaryType.SHORT
+    
+if "last_summarized_text" not in st.session_state:
+            st.session_state.last_summarized_text = ""
+    
 st.title("AI Text Summarizer")
 
-st.write(
-    "Summarize long text into concise summaries using Google's Gemini."
-)
+render_sidebar()
 
-st.subheader("Enter your text to summarize")
-text = st.text_area("", 
-                        height=300,
-                        placeholder="Paste your article here..."
-                )
+text, uploaded_pdf, summary_type, summarize = render_input()
 
-col1, col2 = st.columns(2)
+if summarize:
 
-with col1:
-    summary_type = st.selectbox(
-        "Summary Type",
-        options=list(SummaryType),
-        format_func=lambda x: x.replace("_", " ").title(),
-    )
-
-with col2:
-    st.markdown("<br>", unsafe_allow_html=True)
-    summarize_button = st.button(
-        "Generate Summary",
-        use_container_width=True,
-        disabled= not text.strip(),
-    )
-
-if summarize_button:
     try:
-        request = SummaryRequest(text = text, summary_type = summary_type)
+        request = SummaryRequest(
+            text=text,
+            summary_type=summary_type,
+        )
 
-        with st.spinner("Wait a moment, Generating summary..."):
+        with st.spinner("Generating summary..."):
+
             response = summarize_text(request)
 
-        st.success("Summary generated successfully!")
+        st.session_state.last_summarized_text = text
+        st.session_state.summary = response.summary
+        # st.session_state.input_text = text
+        st.session_state.summary_type = summary_type
 
-        st.subheader("Summary")
-        st.text_area(
-            "",
-            value=response.summary,
-            height=200         
-        )
-        
     except ValidationError as e:
         st.error(str(e))
 
@@ -74,3 +60,5 @@ if summarize_button:
 
     except GeminiAPIError as e:
         st.error(str(e))
+
+render_output()

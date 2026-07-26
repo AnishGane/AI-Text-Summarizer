@@ -13,3 +13,6 @@ class GeminiAPIError(SummarizerError):
 
 class PromptError(SummarizerError):
     """Raised when prompt generation fails."""
+    
+class PDFExtractionError(Exception):
+    """Raised when PDF extraction fails."""
