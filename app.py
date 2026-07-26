@@ -8,6 +8,7 @@ from src.components.sidebar import render_sidebar
 from src.components.input import render_input
 from src.components.output import render_output
 from src.utils import load_css
+import time
 
 st.set_page_config(
     page_title="AI Text Summarizer",
@@ -36,7 +37,6 @@ render_sidebar()
 text, uploaded_pdf, summary_type, summarize = render_input()
 
 if summarize:
-
     try:
         request = SummaryRequest(
             text=text,
@@ -44,12 +44,14 @@ if summarize:
         )
 
         with st.spinner("Generating summary..."):
-
+            start = time.time()
             response = summarize_text(request)
+            elapsed_time = time.time() - start
+            
+            st.info(f"Summary generated in {elapsed_time:.2f} seconds")
 
         st.session_state.last_summarized_text = text
         st.session_state.summary = response.summary
-        # st.session_state.input_text = text
         st.session_state.summary_type = summary_type
 
     except ValidationError as e:

@@ -84,3 +84,19 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2026-07-26 21:32:45 | INFO | src.llm | Sending prompt to Gemini API...
 2026-07-26 21:32:49 | INFO | src.llm | Received response from Gemini.
 2026-07-26 21:32:49 | INFO | src.services.summarizer | Summary generated successfully.
+2026-07-26 21:53:26 | INFO | src.services.summarizer | Generating long summary
+2026-07-26 21:53:26 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-26 21:53:29 | INFO | src.llm | Received response from Gemini.
+2026-07-26 21:53:29 | INFO | src.services.summarizer | Summary generated successfully.
+2026-07-26 21:55:37 | INFO | src.services.summarizer | Generating long summary
+2026-07-26 21:55:37 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-26 21:55:40 | INFO | src.llm | Received response from Gemini.
+2026-07-26 21:55:40 | INFO | src.services.summarizer | Summary generated successfully.
+2026-07-26 22:17:36 | INFO | src.services.summarizer | Generating bullets summary
+2026-07-26 22:17:36 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-26 22:17:39 | INFO | src.llm | Received response from Gemini.
+2026-07-26 22:17:39 | INFO | src.services.summarizer | Summary generated successfully.
+2026-07-26 22:18:03 | INFO | src.services.summarizer | Generating bullets summary
+2026-07-26 22:18:03 | INFO | src.llm | Sending prompt to Gemini API...
+2026-07-26 22:18:07 | INFO | src.llm | Received response from Gemini.
+2026-07-26 22:18:07 | INFO | src.services.summarizer | Summary generated successfully.
