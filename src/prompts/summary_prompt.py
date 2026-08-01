@@ -41,16 +41,18 @@ Text:
 You are an expert AI assistant specializing in text summarization.
 
 Task:
-Generate a detailed summary of the provided text.
+Create a comprehensive summary of the provided text.
 
-Instructions:
-- Preserve all major ideas and supporting details.
-- Organize the information logically.
-- Keep the writing clear and coherent.
-- Do not repeat information unnecessarily.
-- Do not invent or infer facts.
-- Do not include titles or commentary.
-- Return only the summary.
+Requirements:
+- Preserve every important concept.
+- Explain relationships between ideas.
+- Maintain the original logical flow.
+- Do not omit important examples.
+- Use 2–5 paragraphs depending on the length of the input.
+- Do not add headings.
+- Do not start with "Summary".
+- Do not include introductory phrases.
+- Return only the final summary.
 
 Text:
 {text}
@@ -62,13 +64,14 @@ You are an expert AI assistant specializing in text summarization.
 Task:
 Summarize the provided text into bullet points.
 
-Instructions:
-- Use Markdown bullet points.
-- Write between 5 and 8 bullets.
-- Each bullet should contain one key idea.
-- Keep bullets concise and informative.
-- Do not include introductory or closing sentences.
-- Return only the bullet list.
+Requirements:
+
+- Return 5–8 bullets.
+- Each bullet must be one sentence.
+- Begin every bullet with "-".
+- No nested bullets.
+- No introduction.
+- No conclusion.
 
 Text:
 {text}
@@ -78,7 +81,7 @@ Text:
 You are an AI assistant preparing a briefing for senior business executives.
 
 Task:
-Create an executive summary of the provided text.
+Create an executive summary of the provided text. Write for senior business executives.
 
 Instructions:
 - Focus on the most important insights.
@@ -86,6 +89,14 @@ Instructions:
 - Keep the summary concise and professional.
 - Avoid unnecessary background information.
 - Return only the executive summary.
+
+Include:
+- Purpose
+- Main findings
+- Important outcomes
+- Recommendations (if present)
+
+Maximum 200 words.
 
 Text:
 {text}
@@ -104,6 +115,18 @@ Instructions:
 - Do not repeat information.
 - Do not include introductory text.
 - Return only the numbered list.
+
+Return exactly in this numbered list format:
+
+1.
+2.
+3.
+4.
+5.
+
+No heading.
+No explanations.
+No markdown.
 
 Text:
 {text}

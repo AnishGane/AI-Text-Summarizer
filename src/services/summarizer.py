@@ -1,6 +1,4 @@
 # contains business logics
-
-from src.prompts import PROMPTS
 from src.llm import generate_response
 from src.models import (
     SummaryRequest,
@@ -9,6 +7,8 @@ from src.models import (
 from src.exceptions import PromptError
 from src.logger import logger
 import logging
+from src.utils import clean_summary
+from src.prompts.prompt_builder import build_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -18,12 +18,14 @@ def summarize_text(request: SummaryRequest) -> SummaryResponse:
         request.summary_type.value
     )
     try:
-        prompt = PROMPTS[request.summary_type].format(text=request.text)
+        prompt = build_prompt(request.summary_type, request.text)
     except KeyError as e:
         logger.error("Invalid summary type: %s", request.summary_type)
         raise PromptError(f"No prompt found for summary type: {request.summary_type}") from e
     
     response = generate_response(prompt)
+    
+    response = clean_summary(response)
     
     logger.info("Summary generated successfully.")
     

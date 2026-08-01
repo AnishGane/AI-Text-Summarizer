@@ -100,3 +100,49 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2026-07-26 22:18:03 | INFO | src.llm | Sending prompt to Gemini API...
 2026-07-26 22:18:07 | INFO | src.llm | Received response from Gemini.
 2026-07-26 22:18:07 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:05:31 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:05:31 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:05:36 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:05:36 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:05:50 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:05:50 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:05:54 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:05:54 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:06:03 | INFO | src.services.summarizer | Generating long summary
+2026-08-01 21:06:03 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:06:07 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:06:07 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:19:23 | INFO | src.services.summarizer | Generating long summary
+2026-08-01 21:19:23 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:19:26 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:19:26 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:19:33 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:19:33 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:19:38 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:19:38 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:26:34 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:26:34 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:26:37 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:26:37 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:26:58 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:26:58 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:26:59 | ERROR | src.llm | Gemini API request failed.
+2026-08-01 21:28:44 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Python311\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Python311\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-08-01 21:29:07 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:29:07 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:29:08 | ERROR | src.llm | Gemini API request failed.
+2026-08-01 21:29:24 | INFO | src.services.summarizer | Generating bullets summary
+2026-08-01 21:29:24 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:29:27 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:29:27 | INFO | src.services.summarizer | Summary generated successfully.
+2026-08-01 21:30:13 | INFO | src.services.summarizer | Generating medium summary
+2026-08-01 21:30:13 | INFO | src.llm | Sending prompt to Gemini API...
+2026-08-01 21:30:16 | INFO | src.llm | Received response from Gemini.
+2026-08-01 21:30:16 | INFO | src.services.summarizer | Summary generated successfully.

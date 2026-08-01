@@ -1,5 +1,6 @@
 from pathlib import Path
 import streamlit as st
+import re
 
 def load_css():
     css_path = Path("assets/style.css")
@@ -37,3 +38,19 @@ def clear_session():
         st.session_state.pop(key, None)
 
     st.rerun()
+    
+
+def clean_summary(text: str) -> str:
+    text = text.strip()
+    
+    patterns = [
+        r"^\*\*Summary:?\*\*",
+        r"^Summary:?",
+        r"^\*\*Draft:?\*\*",
+        r"^Draft:?",
+    ]
+    
+    for pattern in patterns:
+        text = re.sub(pattern, "", text, flags=re.IGNORECASE)
+        
+    return text.strip()
